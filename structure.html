@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>CatchPhish - Spot the Phishing Mail! </title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <script src='scriptt.js'></script>
+</head>
+<body>
+
+    <div>
+        <p style="font-size: 24px; text-align:left;">CatchPhish</p>
+    </div>
+
+    <div id="firstbox">
+        <p>Ever wondered if the mail you recieved looked like SPAM? <br> <br> you can use <b> CatchPhish </b> to find out! </p>
+        <textarea id="stuff" placeholder="Paste the suspicious mail here..." > </textarea>
+        <div>
+        <button onclick="preview()" > Enter </button>
+        </div>
+    </div>
+
+    <div id="secondbox" style = "display: none;">
+        <div id="confirmbox"> </div>
+        <button onclick = "check()"> Confirm? </button>
+    </div>
+
+    <div id="result"></div>
+
+</body>
+</html>

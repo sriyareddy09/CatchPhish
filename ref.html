@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>SpotPhish</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    textarea {
+      width: 100%;
+      height: 150px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding: 10px;
+    }
+    #confirmBox {
+      white-space: pre-wrap;
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      min-height: 100px;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    #result {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>SpotPhish - Paste Email Below</h2>
+  <textarea id="emailInput" placeholder="Paste email content here..."></textarea>
+  <button onclick="previewEmail()">Enter</button>
+
+  <div id="confirmContainer" style="display:none;">
+    <h3>Confirm Email Content:</h3>
+    <div id="confirmBox">   </div>
+    <button onclick="checkEmail()">Confirm</button>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    let emailText = "";
+
+    function previewEmail() {
+      emailText = document.getElementById("emailInput").value.trim();
+      if (!emailText) {
+        alert("Please paste the email content first.");
+        return;
+      }
+
+      document.getElementById("confirmBox").textContent = emailText;
+      document.getElementById("confirmContainer").style.display = "block";
+      document.getElementById("result").textContent = "";
+    }
+
+    function checkEmail() {
+      document.getElementById("result").textContent = "Checking...";
+
+      // Simulate phishing check with rule-based JS (replace later with Flask call)
+      setTimeout(() => {
+        const suspicious = ["verify", "urgent", "click", "account", "password", "login", "reset", "suspended", "otp"];
+        let isPhishing = suspicious.some(word => emailText.toLowerCase().includes(word));
+
+        if (isPhishing) {
+          document.getElementById("result").textContent = "❌ NOPE – This looks like a phishing email.";
+          document.getElementById("result").style.color = "red";
+        } else {
+          document.getElementById("result").textContent = "✅ SAFE – This doesn't seem suspicious.";
+          document.getElementById("result").style.color = "green";
+        }
+      }, 1000); // Simulate delay
+    }
+  </script>
+
+</body>
+</html>

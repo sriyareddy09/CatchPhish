@@ -1,0 +1,33 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    padding: 40px;
+}
+
+textarea {
+      width: 100%;
+      height: 75px;
+      margin-bottom: 20px;
+      font-size: 16px;
+      padding: 10px;
+}
+
+#confirmbox {
+    margin-top: 20px;
+      white-space: pre-wrap;
+      background-color: #fff;
+      padding: 15px;
+      border: 1px solid #ccc;
+      min-height: 75px;
+      margin-bottom: 20px;
+}
+    
+button {
+      padding: 10px 20px;
+      font-size: 16px;
+}
+
+#result {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 20px;
+}
